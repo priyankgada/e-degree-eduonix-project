@@ -1,0 +1,14 @@
+Part 3 answer - Krack Attack - 
+
+The Krack Attack, short for Key Reinstallation Attacks, is a security vulnerability that targets the process of reinstalling encryption keys during the establishment of a WPA2-protected Wi-Fi connection. In essence, Krack Attack exploits weaknesses in the key management protocol of the WPA2 (Wi-Fi Protected Access 2) standard, allowing an attacker to reinstall an already-in-use key.
+
+The attack involves manipulating the key negotiation process, causing the reinstallation of an encryption key that is already in use. This key reuse can lead to significant security issues, as it allows the attacker to intercept and decrypt wireless traffic, potentially gaining unauthorized access to sensitive information transmitted over the Wi-Fi network.
+
+Krack Attack takes advantage of vulnerabilities in the four-way handshake, a key establishment protocol in WPA2, where the client and access point agree on a fresh session key to secure the communication. By manipulating this handshake process, an attacker can trick the parties into reinstalling an already-used key, leading to the compromise of the wireless communication.
+
+The consequences of Krack Attack include the potential for unauthorized access to sensitive data, including passwords and other confidential information, transmitted over the compromised Wi-Fi network. It's important for users and organizations to be aware of such vulnerabilities and promptly apply security patches and updates to mitigate the risk of exploitation. Additionally, transitioning to more secure protocols, such as WPA3, can provide better protection against key reinstallation attacks like Krack.
+
+
+
+
+

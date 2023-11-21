@@ -1,0 +1,19 @@
+Part 4 - Eduonix notes 
+
+In a network environment with 10 servers and 10 client machines, where all machines have internet access and process information from external sources, it is recommended to install both antivirus and firewall protection on all machines. This includes both servers and client machines. Here's why:
+
+Servers:
+
+Servers often store critical data, manage user access, and host services that are essential for the company's operations. They are also potential targets for various types of attacks. Installing antivirus software on servers helps to detect and prevent the spread of malware, protecting the integrity of stored data and ensuring the smooth operation of server-based services.
+
+Firewalls on servers add an extra layer of defense by controlling incoming and outgoing network traffic, helping to block unauthorized access and mitigating the risk of network-based attacks. Firewalls can also be configured to allow or deny specific types of traffic, enhancing the overall security posture of the servers.
+
+Client Machines:
+
+Client machines, including desktops and laptops, are often used by employees to access the internet, email, and other external resources. These machines are susceptible to various types of malware and phishing attacks. Installing antivirus software on client machines helps to prevent the spread of malware, protect against malicious downloads, and safeguard sensitive information stored on these devices.
+
+Firewalls on client machines act as a barrier between the internal network and external threats. They can block unauthorized access attempts, prevent malicious software from communicating with external servers, and offer an additional layer of defense against potential threats.
+
+Comprehensive Protection:
+
+By deploying antivirus and firewall solutions on all machines within the network, you create a comprehensive security framework that helps protect the entire company infrastructure. This approach ensures that each device, whether a server or a client machine, contributes to the overall security posture of the network.

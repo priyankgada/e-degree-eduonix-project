@@ -1,0 +1,18 @@
+Part 2 answer
+
+Digital Supply Chain Attack:
+
+What can be attacked: The company's digital supply chain management system.
+How: Attackers could compromise the software or systems used to manage the supply chain. For instance, they might inject malicious code into the software used for inventory management, leading to incorrect order fulfillment or theft of intellectual property related to shoe designs. This could result in the distribution of counterfeit products or disruptions in the production process.
+E-Commerce Website Breach:
+
+What can be attacked: The company's e-commerce platform.
+How: Attackers might exploit vulnerabilities in the e-commerce website to gain unauthorized access to customer data, including personal information and payment details. This could lead to identity theft, financial loss for customers, and damage to the company's reputation. Additionally, attackers could manipulate product listings, pricing, or payment processes, impacting the company's revenue and customer trust.
+Payment Processor Compromise:
+
+What can be attacked: The payment processing system used by the company.
+How: Attackers could target the payment processor to intercept or manipulate transactions. For instance, they might use techniques like man-in-the-middle attacks to alter payment information during transactions, leading to financial losses for both the company and its customers. Alternatively, attackers may seek to compromise the integrity of the payment processing system, causing disruptions to the company's cash flow.
+Physical Supply Chain Tampering:
+
+What can be attacked: The physical supply chain, including manufacturing and distribution.
+How: Attackers might infiltrate the manufacturing facilities or distribution centers to introduce defects into the shoes, steal valuable inventory, or disrupt the production process. This could result in the distribution of substandard products, financial losses, and damage to the company's reputation. Additionally, physical tampering could pose safety risks if compromised shoes reach consumers.

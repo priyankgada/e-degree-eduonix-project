@@ -1,0 +1,47 @@
+Part 1 - 
+
+User authentication involves verifying the identity of an individual accessing a system, typically by using a combination of factors. Multi-factor authentication (MFA) incorporates at least two of the three authentication factors: something you know (knowledge), something you have (ownership), and something you are (inherence). Here's how a web-based user authentication process could incorporate three different factors:
+
+Knowledge Factor:
+
+Example: Password or PIN
+Process:
+The user enters their username or email address on the website.
+The system prompts the user to enter a password or PIN associated with their account.
+This information serves as the "something you know" factor.
+Ownership Factor:
+
+Example: One-Time Passcode (OTP) from a mobile app or hardware token
+Process:
+Upon successful entry of the password or PIN, the system sends a unique one-time passcode to the user's registered mobile device or displays it on a hardware token.
+The user enters this one-time passcode as a secondary authentication step.
+This information serves as the "something you have" factor.
+Inherence Factor:
+
+Example: Biometric authentication (e.g., fingerprint, facial recognition)
+Process:
+After successfully entering the one-time passcode, the system prompts the user to provide a biometric identifier.
+The user may need to use a fingerprint scanner, facial recognition via a camera, or another biometric method.
+This information serves as the "something you are" factor.
+Complete Authentication Process:
+
+Initiation:
+
+User enters username or email address.
+User enters a password or PIN (Knowledge factor).
+Verification:
+
+System verifies the password or PIN.
+If successful, the system generates and sends a one-time passcode to the user's registered device (Ownership factor).
+Secondary Authentication:
+
+User enters the received one-time passcode.
+If correct, the system prompts the user for biometric authentication (Inherence factor).
+Biometric Authentication:
+
+User provides a biometric identifier (e.g., fingerprint, facial scan).
+The system compares the provided biometric data with the stored template.
+Access Granted:
+
+If all three factors are successfully verified, access to the web application is granted.
+If any factor fails, access is denied.
